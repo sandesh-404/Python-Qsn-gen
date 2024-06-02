@@ -1,0 +1,2 @@
+name.split("@")
+print(username[
