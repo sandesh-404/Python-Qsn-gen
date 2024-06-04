@@ -1,5 +1,6 @@
 import sys, os
-from functions import login, signup, AdminPanel, LecturerPanel, EUPPanel
+from panels import AdminPanel, LecturerPanel, EUPPanel
+from commons import login
 
 print("### Welcome to the Test Question Management System ###")
 
