@@ -1,7 +1,6 @@
-import re
+import re, os
 from datetime import datetime
-from commons import calculateAge
-import os
+from commons import calculate_age, signup
 
 # Username and Password hashing encryption
 # def login(username, password, tries):
@@ -21,7 +20,7 @@ import os
 #             tries += 1
 #             response = ["Incorrect Username or Password, You have {tries} tries remaining!", tries]
 
-def addLecturerProfile(username):
+def add_lecturer_profile(username):
     username, role = username.strip().split("@")
     name = input("Enter Name: ")
     address = input("Enter address: ")
@@ -47,7 +46,7 @@ def addLecturerProfile(username):
         print(f"Error: {e}")
     return "error"
     
-def updateLecturerProfile(username):
+def update_lecturer_profile(username):
     username, role = username.strip().split("@")
     try:
         with open("texts/lecturers.txt", "r") as file:
@@ -68,7 +67,7 @@ def updateLecturerProfile(username):
             lecturer[4] = input("Enter Contact No: ")
             lecturer[5] = input("Enter email: ")
             lecturer[6] = input("Enter your DOB(dd-mm-YYYY): ")
-            lecturer[7] = calculateAge(lecturer[6])
+            lecturer[7] = calculate_age(lecturer[6])
             lecturer[8] = input("Enter citizenship id: ")
         else:
             exit()
@@ -85,7 +84,7 @@ def updateLecturerProfile(username):
         print(f"Error: {e}")
     return "success"
 
-def subjectTopic():
+def subject_topic():
     print("... Displaying Subjects...")
     topics = []
     subjects = []
@@ -142,7 +141,7 @@ def subjectTopic():
     except Exception as e:
         print(f"Error: {e}")
 
-def deleteUser(username):
+def delete_user(username):
     users = []
     lecturers = []
     username, role = username.strip().split("@")

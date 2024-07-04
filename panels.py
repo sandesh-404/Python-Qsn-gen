@@ -1,6 +1,8 @@
-from functionalities import signup, addLecturerProfile, updateLecturerProfile, subjectTopic, deleteUser
+from functionalities import signup, add_lecturer_profile, update_lecturer_profile, subject_topic, delete_user
 import sys, os
-def AdminPanel(username):
+from commons import change_password
+from lecturer import add_question_answers, edit_question_answers, view_question_answers
+def admin_panel(username):
     while True:
         print("#####   ADMIN PANEL   #####")
         print(f"Welcome {username}!")
@@ -25,7 +27,7 @@ def AdminPanel(username):
                     break
         elif choice == 2:
             lecturer_username = input("Enter the username of the lecturer you want to add: ")
-            lecturer_profile = addLecturerProfile(lecturer_username)
+            lecturer_profile = add_lecturer_profile(lecturer_username)
             if lecturer_profile == "added" or lecturer_profile == "exists":
                 break
             else:
@@ -34,16 +36,16 @@ def AdminPanel(username):
                     break
         elif choice == 3:
             lecturer_username = input("Enter the username of the lecturer you want to edit/update: ")
-            response = updateLecturerProfile(lecturer_username)
+            response = update_lecturer_profile(lecturer_username)
             if response == "success":
                 break
         elif choice == 4:
-            response = subjectTopic()
+            response = subject_topic()
             if response == "success":
                 break
         elif choice == 5:
             user = input("Enter username(To delete): ")
-            response = deleteUser(user)
+            response = delete_user(user)
             if response == "success":
                 break
         elif choice == 6:
@@ -53,14 +55,34 @@ def AdminPanel(username):
         else:
             print("Option not available, Try again!")
 
-def LecturerPanel(username):
-    print("#####   LECTURER PANEL   #####")
-    print(f"Welcome {username}!")
-    print("You have the following choices!")
+def lecturer_panel(username):
+    while True:
+        print("#####   LECTURER PANEL   #####")
+        print(f"Welcome {username}!")
+        print("You have the following choices!")
+        print("1. Change username and password!")
+        print("2. Add new quesitons and answers")
+        print("3. Modify/Edit/Update questions and answers")
+        print("4. View Questions and answers")
+        choice = input("Enter your choice: ")
+        if choice == 1:
+            response = change_password(username)
+        elif choice == 2:
+            response = add_question_answers(username)
+        elif choice == 3:
+            response = edit_question_answers(username)
+        elif choice == 4:
+            response = view_question_answers(username)
+        elif choice == 5:
+            print("... Exiting ...")
+            os.system("sleep 3")
+            exit()
+        else:
+            print("Option not available, Try again!")
     
     
 
-def EUPPanel(username):
+def eup_panel(username):
     print("#####   EUP PANEL   #####")
     print(f"Welcome {username}!")
     print("You have the following choices!")
