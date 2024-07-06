@@ -1,7 +1,7 @@
 from functionalities import signup, add_lecturer_profile, update_lecturer_profile, subject_topic, delete_user
 import sys, os
 from commons import change_password
-from lecturer import add_question_answers, edit_question_answers, view_question_answers
+from lecturer import add_question_answers, edit_question_answers, view_question_answers, delete_question_answers
 def admin_panel(username):
     while True:
         print("#####   ADMIN PANEL   #####")
@@ -61,24 +61,45 @@ def lecturer_panel(username):
         print(f"Welcome {username}!")
         print("You have the following choices!")
         print("1. Change username and password!")
-        print("2. Add new quesitons and answers")
+        print("2. Add new questions and answers")
         print("3. Modify/Edit/Update questions and answers")
         print("4. View Questions and answers")
+        print("5. Delete Questions and answers")
+        print("q. Exit")
         choice = input("Enter your choice: ")
-        if choice == 1:
+        if choice == '1':
             response = change_password(username)
-        elif choice == 2:
+        elif choice == '2':
             response = add_question_answers(username)
-        elif choice == 3:
+            if response == True:
+                print("Questions added Successfully!")
+            else:
+                print("Quesitons not added!")
+        elif choice == '3':
             response = edit_question_answers(username)
-        elif choice == 4:
+            if response == True:
+                print("Questions updated Successfully!")
+            else:
+                print("Quesitons not updated!")
+        elif choice == '4':
             response = view_question_answers(username)
-        elif choice == 5:
+            if response == True:
+                print("Questions displayed Successfully!")
+            else:
+                print("Quesitons not displayed!")
+        elif choice == '5':
+            response = delete_question_answers(username)
+            if response == True:
+                print("Questions deleted Successfully!")
+            else:
+                print("Quesitons not deleted!")
+        elif choice == 'q':
             print("... Exiting ...")
             os.system("sleep 3")
+            os.system("clear")
             exit()
         else:
-            print("Option not available, Try again!")
+            print(f"Option {choice} not available, Try again!")
     
     
 

@@ -1,5 +1,5 @@
 import sys, os
-from panels import AdminPanel, LecturerPanel, EUPPanel
+from panels import admin_panel, lecturer_panel, eup_panel
 from commons import login
 
 print("### Welcome to the Test Question Management System ###")
@@ -42,11 +42,11 @@ def main():
         if isLoggedIn is True:
             username, role = message
             if role == "admin":
-                AdminPanel(username)
+                admin_panel(username)
             elif role == "lecturer":
-                LecturerPanel(username)
+                lecturer_panel(username)
             elif role == "eup":
-                EUPPanel(username)
+                eup_panel(username)
             else:
                 print("You have no tasks available for the given role")
                 exit()
