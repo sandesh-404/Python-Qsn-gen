@@ -1,7 +1,20 @@
-from functionalities import signup, add_lecturer_profile, update_lecturer_profile, subject_topic, delete_user
+from functionalities import (
+    signup,
+    add_lecturer_profile,
+    update_lecturer_profile,
+    subject_topic,
+    delete_user,
+)
 import sys, os
 from commons import change_password
-from lecturer import add_question_answers, edit_question_answers, view_question_answers, delete_question_answers
+from lecturer import (
+    add_question_answers,
+    edit_question_answers,
+    view_question_answers,
+    delete_question_answers,
+)
+
+
 def admin_panel(username):
     while True:
         print("#####   ADMIN PANEL   #####")
@@ -19,41 +32,60 @@ def admin_panel(username):
             print("Invalid choice!")
         if choice == 1:
             while True:
-                print("Available roles: \n1. Admin(admin) \n2. Lecturer(admin) \n3. EUP(eup)")
+                print(
+                    "Available roles: \n1. Admin(admin) \n2. Lecturer(admin) \n3. EUP(eup)"
+                )
                 username = input("Enter Username(user's_name@role):")
                 password = input("Enter Password:")
                 registered = signup(username, password)
                 if registered == True:
                     break
         elif choice == 2:
-            lecturer_username = input("Enter the username of the lecturer you want to add: ")
+            lecturer_username = input(
+                "Enter the username of the lecturer you want to add: "
+            )
             lecturer_profile = add_lecturer_profile(lecturer_username)
             if lecturer_profile == "added" or lecturer_profile == "exists":
                 break
             else:
                 choice = input("Try again?(y/n)").lower()
-                if(choice == "n"):
+                if choice == "n":
                     break
         elif choice == 3:
-            lecturer_username = input("Enter the username of the lecturer you want to edit/update: ")
+            lecturer_username = input(
+                "Enter the username of the lecturer you want to edit/update: "
+            )
             response = update_lecturer_profile(lecturer_username)
             if response == "success":
                 break
+            else:
+                choice = input("Try again?(y/n)").lower()
+                if choice == "n":
+                    break
         elif choice == 4:
             response = subject_topic()
             if response == "success":
                 break
+            else:
+                choice = input("Try again?(y/n)").lower()
+                if choice == "n":
+                    break
         elif choice == 5:
             user = input("Enter username(To delete): ")
             response = delete_user(user)
             if response == "success":
                 break
+            else:
+                choice = input("Try again?(y/n)").lower()
+                if choice == "n":
+                    break
         elif choice == 6:
             print("... Signing out ...")
             os.system("sleep 3")
             exit()
         else:
             print("Option not available, Try again!")
+
 
 def lecturer_panel(username):
     while True:
@@ -67,41 +99,48 @@ def lecturer_panel(username):
         print("5. Delete Questions and answers")
         print("q. Exit")
         choice = input("Enter your choice: ")
-        if choice == '1':
+        if choice == "1":
             response = change_password(username)
-        elif choice == '2':
+        elif choice == "2":
             response = add_question_answers(username)
             if response == True:
                 print("Questions added Successfully!")
             else:
-                print("Quesitons not added!")
-        elif choice == '3':
+                choice = input("Try again?(y/n)").lower()
+                if choice == "n":
+                    break
+        elif choice == "3":
             response = edit_question_answers(username)
             if response == True:
                 print("Questions updated Successfully!")
             else:
-                print("Quesitons not updated!")
-        elif choice == '4':
+                choice = input("Try again?(y/n)").lower()
+                if choice == "n":
+                    break
+        elif choice == "4":
             response = view_question_answers(username)
             if response == True:
                 print("Questions displayed Successfully!")
             else:
-                print("Quesitons not displayed!")
-        elif choice == '5':
+                choice = input("Try again?(y/n)").lower()
+                if choice == "n":
+                    break
+        elif choice == "5":
             response = delete_question_answers(username)
             if response == True:
                 print("Questions deleted Successfully!")
             else:
-                print("Quesitons not deleted!")
-        elif choice == 'q':
+                choice = input("Try again?(y/n)").lower()
+                if choice == "n":
+                    break
+        elif choice == "q":
             print("... Exiting ...")
             os.system("sleep 3")
             os.system("clear")
             exit()
         else:
             print(f"Option {choice} not available, Try again!")
-    
-    
+
 
 def eup_panel(username):
     print("#####   EUP PANEL   #####")
