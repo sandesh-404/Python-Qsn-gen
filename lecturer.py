@@ -25,7 +25,7 @@ def add_question_answers(username):
         section = input(
             "Select a section (A for multiple choice, B for subjective): "
         ).upper()
-        if section == "A":
+        if section == "Section_A":
             question = input("Enter a question: ")
             answer = input("Enter the correct answer: ")
             option1 = input("Enter option 1: ")
@@ -37,7 +37,7 @@ def add_question_answers(username):
                     f"{selected_topic}@{selected_subject}, A, {question}, {answer}, {option1}, {option2}, {option3}, {option4}"
                 )
             )
-        elif section == "B":
+        elif section == "Section_B":
             question = input("Enter a question: ")
             answer = input("Enter the answer: ")
             questions_and_answers.append(
@@ -65,13 +65,13 @@ def edit_question_answers(username):
             topic_subject = parts[0]
             section = parts[1]
             question = parts[2]
-            if section == "A":
+            if section == "Section_A":
                 answer = parts[3]
                 options = parts[4:]
                 questions_and_answers.append(
                     (topic_subject, section, question, answer, options)
                 )
-            elif section == "B":
+            elif section == "Section_B":
                 answer = parts[3]
                 questions_and_answers.append((topic_subject, section, question, answer))
     print("Available questions:")
@@ -81,7 +81,7 @@ def edit_question_answers(username):
         print(f"{i}. {topic_subject} - {question}")
     question_index = int(input("Select a question to edit (enter the number): ")) - 1
     topic_subject, section, question, *args = questions_and_answers[question_index]
-    if section == "A":
+    if section == "Section_A":
         answer, options = args
         print(f"Current question: {question}")
         print(f"Current answer: {answer}")
@@ -107,7 +107,7 @@ def edit_question_answers(username):
             answer,
             options,
         )
-    elif section == "B":
+    elif section == "Section_B":
         answer = args[0]
         print(f"Current question: {question}")
         print(f"Current answer: {answer}")
@@ -125,12 +125,12 @@ def edit_question_answers(username):
         )
     with open("texts/questions.txt", "w") as file:
         for topic_subject, section, question, *args in questions_and_answers:
-            if section == "A":
+            if section == "Section_A":
                 answer, options = args
                 file.write(
                     f"{topic_subject}, {section}, {question}, {answer}, {', '.join(options)}\n"
                 )
-            elif section == "B":
+            elif section == "Section_B":
                 answer = args[0]
                 file.write(f"{topic_subject}, {section}, {question}, {answer}\n")
     print("Questions and answers recorded successfully!")
@@ -146,7 +146,7 @@ def view_question_answers(username):
             topic_subject = parts[0]
             section = parts[1]
             question = parts[2]
-            if section == "A":
+            if section == "Section_A":
                 answer = parts[3]
                 options = parts[4:]
                 if topic_subject not in questions_and_answers:
@@ -157,7 +157,7 @@ def view_question_answers(username):
                     questions_and_answers[topic_subject].append(
                         (section, question, answer, options)
                     )
-            elif section == "B":
+            elif section == "Section_B":
                 answer = parts[3]
                 if topic_subject not in questions_and_answers:
                     questions_and_answers[topic_subject] = [(section, question, answer)]
@@ -206,10 +206,10 @@ def view_question_answers(username):
             for i, (section, question, *args) in enumerate(
                 questions_and_answers[selected_topic + "@" + selected_subject], 1
             ):
-                if section == "A":
+                if section == "Section_A":
                     answer, options = args
                     print(f"{i}. {question} - {answer} (Options: {', '.join(options)})")
-                elif section == "B":
+                elif section == "Section_B":
                     answer = args[0]
                     print(f"{i}. {question} - {answer}")
         else:
@@ -225,7 +225,7 @@ def delete_question_answers(username):
             topic_subject = parts[0]
             section = parts[1]
             question = parts[2]
-            if section == "A":
+            if section == "Section_A":
                 answer = parts[3]
                 options = parts[4:]
                 if topic_subject not in questions_and_answers:
@@ -236,7 +236,7 @@ def delete_question_answers(username):
                     questions_and_answers[topic_subject].append(
                         (section, question, answer, options)
                     )
-            elif section == "B":
+            elif section == "Section_B":
                 answer = parts[3]
                 if topic_subject not in questions_and_answers:
                     questions_and_answers[topic_subject] = [(section, question, answer)]
@@ -285,10 +285,10 @@ def delete_question_answers(username):
             for i, (section, question, *args) in enumerate(
                 questions_and_answers[selected_topic + "@" + selected_subject], 1
             ):
-                if section == "A":
+                if section == "Section_A":
                     answer, options = args
                     print(f"{i}. {question} - {answer} (Options: {', '.join(options)})")
-                elif section == "B":
+                elif section == "Section_B":
                     answer = args[0]
                     print(f"{i}. {question} - {answer}")
             while True:
@@ -304,12 +304,12 @@ def delete_question_answers(username):
                             selected_topic + "@" + selected_subject
                         ].pop(delete_index)
                     )
-                    if section_to_delete == "A":
+                    if section_to_delete == "Section_A":
                         answer_to_delete, options_to_delete = args_to_delete
                         print(
                             f"Deleted question: {question_to_delete} - {answer_to_delete} (Options: {', '.join(options_to_delete)})"
                         )
-                    elif section_to_delete == "B":
+                    elif section_to_delete == "Section_B":
                         answer_to_delete = args_to_delete[0]
                         print(
                             f"Deleted question: {question_to_delete} - {answer_to_delete}"
@@ -320,12 +320,12 @@ def delete_question_answers(username):
             with open("texts/questions.txt", "w") as file:
                 for topic, questions in questions_and_answers.items():
                     for section, question, *args in questions:
-                        if section == "A":
+                        if section == "Section_A":
                             answer, options = args
                             file.write(
                                 f"{topic}, {section}, {question}, {answer}, {', '.join(options)}\n"
                             )
-                        elif section == "B":
+                        elif section == "Section_B":
                             answer = args[0]
                             file.write(f"{topic}, {section}, {question}, {answer}\n")
             print("Questions updated successfully.")
