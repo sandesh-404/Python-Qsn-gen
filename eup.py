@@ -416,3 +416,62 @@ def view_question_papers(username):
                 print(f"\n{section}:")
                 for i, (question,) in enumerate(questions, 6):
                     print(f"Q{i}. {question}")
+                    
+                    
+# def export_question_paper(username, set_file):
+#     # Read existing questions from set file
+#     existing_questions = {}
+#     sets_dir = "sets/"
+#     set_file_path = os.path.join(sets_dir, set_file)
+#     with open(set_file_path, "r") as f:
+#         for line in f:
+#             parts = line.strip().split(", ")
+#             if len(parts) < 3:
+#                 print(f"Skipping line: {line} (not enough values)")
+#                 continue
+#             topic_subject = parts[0]
+#             section = parts[1]
+#             if len(parts) > 2:
+#                 question = parts[2]
+#             else:
+#                 question = ""
+#             if section == "Section_A":
+#                 if len(parts) > 3:
+#                     options = parts[3:]
+#                 else:
+#                     options = []
+#                 existing_questions[topic_subject] = existing_questions.get(
+#                     topic_subject, {}
+#                 )
+#                 existing_questions[topic_subject][section] = existing_questions[
+#                     topic_subject
+#                 ].get(section, [])
+#                 existing_questions[topic_subject][section].append((question, options))
+#             else:
+#                 existing_questions[topic_subject] = existing_questions.get(
+#                     topic_subject, {}
+#                 )
+#                 existing_questions[topic_subject][section] = existing_questions[
+#                     topic_subject
+#                 ].get(section, [])
+#                 existing_questions[topic_subject][section].append((question,))
+
+#     # Export to text file
+#     export_file = f"{set_file.split('.')[0]}.txt"
+#     with open(export_file, "w") as f:
+#         for topic_subject, sections in existing_questions.items():
+#             for section, questions in sections.items():
+#                 if section == "Section_A":
+#                     f.write(f"{section}:\n")
+#                     for i, (question, options) in enumerate(questions, 1):
+#                         f.write(f"Q{i}. {question}\n")
+#                         for j, option in enumerate(options, 97):
+#                             f.write(f"{chr(j)}. {option}\n")
+#                         f.write("\n")
+#                 elif section == "Section_B":
+#                     f.write(f"\n{section}:\n")
+#                     for i, (question,) in enumerate(questions, 6):
+#                         f.write(f"Q{i}. {question}\n")
+#                         f.write("\n")
+
+#     print(f"Set exported to {export_file}")
