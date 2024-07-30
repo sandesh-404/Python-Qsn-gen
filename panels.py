@@ -1,17 +1,23 @@
-from functionalities import (
+import sys, os
+from commons import change_password
+from admin import (
     signup,
     add_lecturer_profile,
     update_lecturer_profile,
     subject_topic,
     delete_user,
 )
-import sys, os
-from commons import change_password
 from lecturer import (
     add_question_answers,
     edit_question_answers,
     view_question_answers,
     delete_question_answers,
+)
+from eup import (
+    create_question_papers,
+    view_question_papers,
+    add_questions_to_exam_papers,
+    edit_question_papers,
 )
 
 
@@ -143,6 +149,55 @@ def lecturer_panel(username):
 
 
 def eup_panel(username):
-    print("#####   EUP PANEL   #####")
-    print(f"Welcome {username}!")
-    print("You have the following choices!")
+    while True:
+        print("#####   EUP PANEL   #####")
+        print(f"Welcome {username}!")
+        print("You have the following choices!")
+        print("1. Change username and password!")
+        print("2. Create exam question papers")
+        print("3. Add questions to Exam Papers")
+        print("4. Modify/Update/Edit question papers")
+        print("5. View Question papers")
+        print("q. Exit")
+        choice = input("Enter your choice: ")
+        if choice == "1":
+            response = change_password(username)
+        elif choice == "2":
+            response = create_question_papers(username)
+            if response == True:
+                print("Question papers created successfully!")
+            else:
+                choice = input("Try again?(y/n)").lower()
+                if choice == "n":
+                    break
+        elif choice == "3":
+            response = add_questions_to_exam_papers(username)
+            if response == True:
+                print("Questions added to question papers!")
+            else:
+                choice = input("Try again?(y/n)").lower()
+                if choice == "n":
+                    break
+        elif choice == "4":
+            response = edit_question_papers(username)
+            if response == True:
+                print("Questions displayed Successfully!")
+            else:
+                choice = input("Try again?(y/n)").lower()
+                if choice == "n":
+                    break
+        elif choice == "5":
+            response = view_question_papers(username)
+            if response == True:
+                print("Questions deleted Successfully!")
+            else:
+                choice = input("Try again?(y/n)").lower()
+                if choice == "n":
+                    break
+        elif choice == "q":
+            print("... Exiting ...")
+            os.system("sleep 3")
+            os.system("clear")
+            exit()
+        else:
+            print(f"Option {choice} not available, Try again!")
