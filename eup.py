@@ -22,7 +22,7 @@ def create_question_papers(username):
             )
             if override.lower() != "yes":
                 print("Question paper not created.")
-                return True
+                return False
 
         with open(f"sets/{file_name}", "w") as f:
             f.write(f"{file_name}")
@@ -30,6 +30,9 @@ def create_question_papers(username):
         print(f"{file_name} created successfully.")
     else:
         print("Exiting...")
+        os.system("sleep 3")
+        os.system("clear")
+    return True
 
 
 def add_questions_to_exam_papers(username):
@@ -162,7 +165,9 @@ def add_questions_to_exam_papers(username):
         for question in section_b_questions:
             f.write(f"{question[0]}, {question[1]}, {question[2]}\n")
 
-    print("Questions added to exam paper successfully.")
+    print("... Adding questions ...")
+    os.system("sleep 3")
+    os.system("clear")
     return True
 
 
@@ -335,7 +340,9 @@ def edit_question_papers(username):
                         )
                     else:
                         f.write(f"{topic_subject}, {section}, {question[0]}\n")
-    print("Questions edited successfully.")
+    print("... Editing questions! ...")
+    os.system("sleep 3")
+    os.system("clear")
     return True
 
 
@@ -400,8 +407,16 @@ def view_question_papers(username):
                 existing_questions[topic_subject][section].append((question,))
 
     # Display question paper
-    print("\nQuestion Paper")
-    print(f"Set {set_file.split('.')[0]}")
+    
+    print("... Displaying questions ...")
+    os.system("sleep 3")
+    os.system("clear")
+    
+    print("\nQuestion Paper: ")
+    print("")
+    print("")
+    print(f"{set_file.split('.')[0]}")
+    print("")
 
     for topic_subject, sections in existing_questions.items():
         for section, questions in sections.items():
@@ -416,7 +431,12 @@ def view_question_papers(username):
                 print(f"\n{section}:")
                 for i, (question,) in enumerate(questions, 6):
                     print(f"Q{i}. {question}")
-                    
+    print("")
+    print("")
+    print("")
+    print(".............................................................................")
+    a = input("Press any key to exit")
+    return True
                     
 # def export_question_paper(username, set_file):
 #     # Read existing questions from set file

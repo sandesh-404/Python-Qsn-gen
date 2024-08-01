@@ -1,8 +1,8 @@
+physics@science, Section_A, What is gravity?, 9.56, 9.32, gravitas, 10
 physics@science, Section_A, What will be the required force to hold the structure of the board vertically?, 56n, 0n, -35n, 36n
 physics@science, Section_A, What will be the required force to hold the structure of the board vertically?, 56n, 0n, -35n, 36n
 physics@science, Section_A, What is gravity?, 9.56, 9.32, gravitas, 10
-physics@science, Section_A, What will be the required force to hold the structure of the board vertically?, 56n, 0n, -35n, 36n
 physics@science, Section_A, What is gravity?, 9.56, 9.32, gravitas, 10
-physics@science, Section_B, Discuss about the diodes and semiconductors that help in the forward and backward movement of current
+physics@science, Section_B, Draw the network circuit diagram of the transformer? Also calculate the variables of inductors and capacitors.
 physics@science, Section_B, Discuss about the diodes and semiconductors that help in the forward and backward movement of current
 physics@science, Section_B, Draw the network circuit diagram of the transformer? Also calculate the variables of inductors and capacitors.

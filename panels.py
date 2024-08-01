@@ -45,6 +45,9 @@ def admin_panel(username):
                 password = input("Enter Password:")
                 registered = signup(username, password)
                 if registered == True:
+                    print("... Exiting ...")
+                    os.system("sleep 3")
+                    os.system("clear")
                     break
         elif choice == 2:
             lecturer_username = input(
@@ -52,10 +55,16 @@ def admin_panel(username):
             )
             lecturer_profile = add_lecturer_profile(lecturer_username)
             if lecturer_profile == "added" or lecturer_profile == "exists":
+                print("... Exiting ...")
+                os.system("sleep 3")
+                os.system("clear")
                 break
             else:
-                choice = input("Try again?(y/n)").lower()
+                choice = input("... Process failed, Try again?(y/n) ...").lower()
                 if choice == "n":
+                    print("... Exiting ...")
+                    os.system("sleep 3")
+                    os.system("clear")
                     break
         elif choice == 3:
             lecturer_username = input(
@@ -65,25 +74,37 @@ def admin_panel(username):
             if response == "success":
                 break
             else:
-                choice = input("Try again?(y/n)").lower()
+                choice = input("... Process failed, Try again?(y/n) ...").lower()
                 if choice == "n":
                     break
         elif choice == 4:
             response = subject_topic()
             if response == "success":
+                print("... Lecturer Profile Updated ...")
+                os.system("sleep 3")
+                os.system("clear")
                 break
             else:
-                choice = input("Try again?(y/n)").lower()
+                choice = input("... Process failed, Try again?(y/n) ...").lower()
                 if choice == "n":
+                    print("... Exiting ...")
+                    os.system("sleep 3")
+                    os.system("clear")
                     break
         elif choice == 5:
             user = input("Enter username(To delete): ")
             response = delete_user(user)
             if response == "success":
+                print("... User Deleted Successfully ...")
+                os.system("sleep 3")
+                os.system("clear")
                 break
             else:
-                choice = input("Try again?(y/n)").lower()
+                choice = input("... Process failed, Try again?(y/n) ...").lower()
                 if choice == "n":
+                    print("... Exiting ...")
+                    os.system("sleep 3")
+                    os.system("clear")
                     break
         elif choice == 6:
             print("... Signing out ...")
@@ -110,34 +131,58 @@ def lecturer_panel(username):
         elif choice == "2":
             response = add_question_answers(username)
             if response == True:
-                print("Questions added Successfully!")
+                print("... Questions added Successfully! ...")
+                print("... Exiting ...")
+                os.system("sleep 3")
+                os.system("clear")
             else:
-                choice = input("Try again?(y/n)").lower()
+                choice = input("... Process failed, Try again?(y/n) ...").lower()
                 if choice == "n":
+                    print("... Exiting ...")
+                    os.system("sleep 3")
+                    os.system("clear")
                     break
         elif choice == "3":
             response = edit_question_answers(username)
             if response == True:
-                print("Questions updated Successfully!")
+                print("... Questions updated Successfully! ...")
+                print("... Exiting ...")
+                os.system("sleep 3")
+                os.system("clear")
             else:
-                choice = input("Try again?(y/n)").lower()
+                choice = input("... Process failed, Try again?(y/n) ...").lower()
                 if choice == "n":
+                    print("... Exiting ...")
+                    os.system("sleep 3")
+                    os.system("clear")
                     break
         elif choice == "4":
             response = view_question_answers(username)
             if response == True:
                 print("Questions displayed Successfully!")
+                print("... Exiting ...")
+                os.system("sleep 3")
+                os.system("clear")
             else:
-                choice = input("Try again?(y/n)").lower()
+                choice = input("... Process failed, Try again?(y/n) ...").lower()
                 if choice == "n":
+                    print("... Exiting ...")
+                    os.system("sleep 3")
+                    os.system("clear")
                     break
         elif choice == "5":
             response = delete_question_answers(username)
             if response == True:
                 print("Questions deleted Successfully!")
+                print("... Exiting ...")
+                os.system("sleep 3")
+                os.system("clear")
             else:
-                choice = input("Try again?(y/n)").lower()
+                choice = input("... Process failed, Try again?(y/n) ...").lower()
                 if choice == "n":
+                    print("... Exiting ...")
+                    os.system("sleep 3")
+                    os.system("clear")
                     break
         elif choice == "q":
             print("... Exiting ...")
@@ -165,34 +210,58 @@ def eup_panel(username):
         elif choice == "2":
             response = create_question_papers(username)
             if response == True:
-                print("Question papers created successfully!")
+                print("... Question papers created successfully! ...")
+                print("... Exiting ...")
+                os.system("sleep 3")
+                os.system("clear")
             else:
-                choice = input("Try again?(y/n)").lower()
+                choice = input("... Process failed, Try again?(y/n) ...").lower()
                 if choice == "n":
+                    print("... Exiting ...")
+                    os.system("sleep 3")
+                    os.system("clear")
                     break
         elif choice == "3":
             response = add_questions_to_exam_papers(username)
             if response == True:
-                print("Questions added to question papers!")
+                print("... Questions added to set papers successfully! ...")
+                print("... Exiting ...")
+                os.system("sleep 3")
+                os.system("clear")
             else:
-                choice = input("Try again?(y/n)").lower()
+                choice = input("... Process failed, Try again?(y/n) ...").lower()
                 if choice == "n":
+                    print("... Exiting ...")
+                    os.system("sleep 3")
+                    os.system("clear")
                     break
         elif choice == "4":
             response = edit_question_papers(username)
             if response == True:
-                print("Questions displayed Successfully!")
+                print("... Questions edited Successfully! ...")
+                print("... Exiting ...")
+                os.system("sleep 3")
+                os.system("clear")
             else:
-                choice = input("Try again?(y/n)").lower()
+                choice = input("... Process failed, Try again?(y/n) ...").lower()
                 if choice == "n":
+                    print("... Exiting ...")
+                    os.system("sleep 3")
+                    os.system("clear")
                     break
         elif choice == "5":
             response = view_question_papers(username)
             if response == True:
-                print("Questions deleted Successfully!")
+                print("... Questions displayed Successfully! ...")
+                print("... Exiting ...")
+                os.system("sleep 3")
+                os.system("clear")
             else:
-                choice = input("Try again?(y/n)").lower()
+                choice = input("... Process failed, Try again?(y/n) ...").lower()
                 if choice == "n":
+                    print("... Exiting ...")
+                    os.system("sleep 3")
+                    os.system("clear")
                     break
         elif choice == "q":
             print("... Exiting ...")

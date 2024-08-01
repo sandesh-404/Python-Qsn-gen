@@ -55,7 +55,7 @@ def update_lecturer_profile(username):
 
         if username not in [lecturer[0] for lecturer in lecturers]:
             print("Lecturer not found!")
-            return
+            return "error"
 
         index = [lecturer[0] for lecturer in lecturers].index(username)
         lecturer = lecturers[index]
@@ -69,6 +69,9 @@ def update_lecturer_profile(username):
             lecturer[6] = input("Enter your DOB(dd-mm-YYYY): ")
             lecturer[7] = calculate_age(lecturer[6])
             lecturer[8] = input("Enter citizenship id: ")
+            print("... Updating Lecturer profile ...")
+            os.system("sleep 3")
+            os.system("clear")
         else:
             exit()
 

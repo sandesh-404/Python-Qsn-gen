@@ -63,14 +63,21 @@ def login(username, password, tries):
         tries,
     ]
 
+def validate_username(username):
+    if len(username.split(" ")) != 1:
+        print("... Invalid Username! Your username must be a single word! ...")
+        return False
+    else:
+        return True 
 
 def signup(username, password):
     try:
         username, role = username.strip().split("@")
     except Exception as e:
         return [False, f"Error: {e}"]
+    valid_username = validate_username(username)
     valid_password = validate_password(password)
-    if valid_password == True:
+    if valid_password == True and valid_username == True:
         try:
             with open("texts/users.txt", "a+") as file:
                 users = file.readlines()
@@ -79,16 +86,16 @@ def signup(username, password):
                     and user.strip().split(", ")[1] == role
                     for user in users
                 ):
-                    print("User already exists")
+                    print("... User already exists ...")
                     return
                 file.write(f"{username}, {password}, {role}\n")
-                print("User added successfully")
+                print("... User added successfully ...")
         except FileNotFoundError:
             with open("users.txt", "w") as file:
                 file.write(f"{username}, {password}, {role}\n")
-                print("User added successfully")
+                print("... User added successfully ...")
         except PermissionError:
-            print("Permission denied. Cannot access the file.")
+            print("... Permission denied. Cannot access the file ...")
         except Exception as e:
             print(f"Error: {e}")
         return True
