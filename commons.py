@@ -145,6 +145,9 @@ def change_password(username):
                             with open("texts/users.txt", "w") as file:
                                 file.writelines(users)
                             print("... Password changed successfully ...")
+                            print("Exiting...")
+                            os.system("sleep 3")
+                            os.system("clear")
                             return
                         else:
                             print("Invalid new password. Password not changed.")
