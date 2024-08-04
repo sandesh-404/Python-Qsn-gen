@@ -1,3 +1,0 @@
-sandesh, lecturer, Sandesh, djsdfs, dfssd, fsdfs
-a, lecturer, Abinash, KTM, 98439843, ab@email.com
-c, lecturer, Camelia, ktm, 9898, skdfs
