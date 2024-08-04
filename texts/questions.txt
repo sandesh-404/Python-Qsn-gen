@@ -2,3 +2,8 @@ physics@science, Section_A, What is gravity?, gravitas, 9.56, 9.32, gravitas, 10
 physics@science, Section_A, What will be the required force to hold the structure of the board vertically?, 36n, 56n, 0n, -35n, 36n
 physics@science, Section_B, Draw the network circuit diagram of the transformer? Also calculate the variables of inductors and capacitors., How would I know?
 physics@science, Section_B, Discuss about the diodes and semiconductors that help in the forward and backward movement of current, Semiconductor diodes.
+software@computer, Section_A, What is use of CPU?, Processing Data, Storing Data, Processing Data, Removing Data, Editing Data
+software@computer, Section_B, What is software, Software is a collection of program.
+software@computer, Section_A, What is program?, code to perform specific task, code to perform specific task, pro gram, grammamer, pro gramer
+software@computer, Section_A, How to print in python?, print(), cout, print(), brainbrain, console.log()
+software@computer, Section_A, What is a game?, software, Hardware, Software, ALU, GPU

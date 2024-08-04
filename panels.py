@@ -42,7 +42,7 @@ def admin_panel(username):
                     "Available roles: \n1. Admin(admin) \n2. Lecturer(admin) \n3. EUP(eup)"
                 )
                 username = input("Enter Username(user's_name@role):")
-                password = input("Enter Password:")
+                password = input("Enter Password(please do not use @):")
                 registered = signup(username, password)
                 if registered == True:
                     print("... Exiting ...")

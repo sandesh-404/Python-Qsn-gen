@@ -1,0 +1,8 @@
+software@computer, Section_A, What is use of CPU?, Storing Data, Processing Data, Removing Data, Editing Data
+software@computer, Section_A, What is program?, code to perform specific task, pro gram, grammamer, pro gramer
+software@computer, Section_A, How to print in python?, cout, print(), brainbrain, console.log()
+software@computer, Section_A, What is a game?, Hardware, Software, ALU, GPU
+software@computer, Section_A, What is program?, code to perform specific task, pro gram, grammamer, pro gramer
+software@computer, Section_B, What is the features of OS?
+software@computer, Section_B, What is software
+software@computer, Section_B, What is the features of OS?

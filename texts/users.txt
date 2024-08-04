@@ -1,1 +1,3 @@
 admin, admin, admin
+dipesh, malla$dipesh1, lecturer
+sanij, sanij$shrestha, eup

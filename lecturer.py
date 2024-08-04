@@ -26,7 +26,7 @@ def add_question_answers(username):
             section = input(
                 "Select a section (A for multiple choice, B for subjective): "
             ).upper()
-            if section == "Section_A":
+            if section == "A":
                 question = input("Enter a question: ")
                 answer = input("Enter the correct answer: ")
                 option1 = input("Enter option 1: ")
@@ -35,14 +35,14 @@ def add_question_answers(username):
                 option4 = input("Enter option 4: ")
                 questions_and_answers.append(
                     (
-                        f"{selected_topic}@{selected_subject}, A, {question}, {answer}, {option1}, {option2}, {option3}, {option4}"
+                        f"{selected_topic}@{selected_subject}, Section_A, {question}, {answer}, {option1}, {option2}, {option3}, {option4}"
                     )
                 )
-            elif section == "Section_B":
+            elif section == "B":
                 question = input("Enter a question: ")
                 answer = input("Enter the answer: ")
                 questions_and_answers.append(
-                    (f"{selected_topic}@{selected_subject}, B, {question}, {answer}")
+                    (f"{selected_topic}@{selected_subject}, Section_B, {question}, {answer}")
                 )
             else:
                 print("Invalid section. Please try again.")

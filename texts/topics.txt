@@ -1,0 +1,3 @@
+physics@science
+chemistry@science
+software@computer
