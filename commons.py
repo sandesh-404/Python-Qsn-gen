@@ -1,4 +1,4 @@
-import datetime, re, os
+import datetime, os
 
 
 def calculate_age(birthdate):
@@ -17,20 +17,20 @@ def calculate_age(birthdate):
 
 def validate_password(password):
     errors = []
-
+    password = password.strip()
     if len(password) < 8:
         errors.append("Your password must be at least 8 characters long.")
 
-    if not re.search(r"[a-zA-Z]", password):
+    if not any(char.isupper() or char.islower() for char in password):
         errors.append("Your password must include letters.")
 
-    if not re.search(r"\d", password):
+    if not any(char.isdigit() for char in password):
         errors.append("Your password must include numbers.")
 
-    if re.search(r"\s", password):
+    if any(char == " " for char in password):
         errors.append("Your password must not have spaces.")
 
-    if not re.search(r'[!@#$%^&*(),.?":{}|<>]', password):
+    if not any(char in '[!@#$%^&*(),.?":{}|<>]' for char in password):
         errors.append("Your password must have at least 1 symbol.")
         
     if "@" in password:
@@ -145,9 +145,6 @@ def change_password(username):
                             with open("texts/users.txt", "w") as file:
                                 file.writelines(users)
                             print("... Password changed successfully ...")
-                            print("Exiting...")
-                            os.system("sleep 3")
-                            os.system("clear")
                             return
                         else:
                             print("Invalid new password. Password not changed.")
